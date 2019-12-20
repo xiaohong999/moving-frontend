@@ -3,12 +3,7 @@ import React, { Component } from "react";
 import { withStyles, Button, Divider, Box } from "@material-ui/core";
 import Header from "../components/Header";
 import LocationField from "../components/LocationField";
-import {
-	GoogleMap,
-	withGoogleMap,
-	DirectionsRenderer,
-	Marker
-} from "react-google-maps";
+import Map from "../components/Map";
 
 const styles = {
 	topPanel: {
@@ -96,56 +91,6 @@ class LocationSelect extends Component {
 		const { classes } = this.props;
 		const { directions, pickup, destination, distance } = this.state;
 
-		const WrappedMap = withGoogleMap(props => (
-			<GoogleMap
-				defaultCenter={
-					pickup
-						? pickup
-						: destination
-						? destination
-						: { lat: 40.756795, lng: -73.954298 }
-				}
-				defaultZoom={10}
-			>
-				{directions ? (
-					<DirectionsRenderer
-						directions={directions}
-						options={{
-							polylineOptions: {
-								strokeColor: "#505fb4",
-								strokeWeight: 4
-							},
-							suppressMarkers: true
-						}}
-					/>
-				) : (
-					<div></div>
-				)}
-				{pickup ? (
-					<Marker
-						position={pickup}
-						icon={{
-							url: "./pin-down.png",
-							scaledSize: new window.google.maps.Size(40, 40)
-						}}
-					/>
-				) : (
-					<div />
-				)}
-				{destination ? (
-					<Marker
-						position={destination}
-						icon={{
-							url: "./pin-up.png",
-							scaledSize: new window.google.maps.Size(40, 40)
-						}}
-					/>
-				) : (
-					<div />
-				)}
-			</GoogleMap>
-		));
-
 		return (
 			<div>
 				<div className={classes.topPanel}>
@@ -169,11 +114,12 @@ class LocationSelect extends Component {
 						distance : {Number.parseFloat(distance / 1000).toFixed(2)}km
 					</Box>
 				</div>
-				<WrappedMap
-					googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=${process.env.REACT_APP_GOOGLE_KEY}`}
-					loadingElement={<div style={{ height: "100%" }} />}
-					containerElement={<div style={{ height: "calc(100vh - 200px)" }} />}
-					mapElement={<div style={{ height: "100%" }} />}
+				<Map
+					pickup={pickup}
+					destination={destination}
+					directions={directions}
+					width="100%"
+					height="calc(100vh - 200px)"
 				/>
 			</div>
 		);
