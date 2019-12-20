@@ -1,8 +1,20 @@
+:root {
+	--colorMain: #505fb4;
+	--colorBg: #f3f3f6;
+
+	--colorWhite: white;
+	--colorGray: #848793;
+	--colorYellow: #fff055;
+	--colorLightGray: #cccdd4;
+
+	text-align: center;
+}
+
+html,
 body {
 	margin: 0;
 	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
 		"Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
 		sans-serif;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
+	background-color: var(--colorBg);
 }
