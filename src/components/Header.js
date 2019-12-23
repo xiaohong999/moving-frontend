@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { withStyles } from "@material-ui/core";
+import { connect } from "react-redux";
 
 const styles = {
 	root: {
@@ -24,14 +25,20 @@ const styles = {
 
 class Header extends Component {
 	render() {
-		const { classes, title, index } = this.props;
+		const { classes, title, step } = this.props;
 		return (
 			<div className={classes.root}>
-				<span className={classes.index}>{index}</span>
+				<span className={classes.index}>{step}</span>
 				{title}
 			</div>
 		);
 	}
 }
 
-export default withStyles(styles)(Header);
+function mapStateToProps(state) {
+	return {
+		title: state.title,
+		step: state.step
+	};
+}
+export default connect(mapStateToProps)(withStyles(styles)(Header));

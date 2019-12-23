@@ -1,13 +1,14 @@
 /*global google*/
 import React, { Component } from "react";
 import { withStyles, Button, Divider, Box } from "@material-ui/core";
-import Header from "../components/Header";
 import LocationField from "../components/LocationField";
 import Map from "../components/Map";
+import { connect } from "react-redux";
+import { locationSelected, setStep } from "../redux/actions";
 
 const styles = {
 	topPanel: {
-		height: 200
+		height: 110
 	},
 	panel: {
 		background: "var(--colorWhite)",
@@ -28,20 +29,27 @@ const styles = {
 class LocationSelect extends Component {
 	state = {
 		directions: null,
-		distance: 0,
-		pickup: null,
-		destination: null
+		distance: 0
 	};
+
+	componentWillMount() {
+		const { location, setStep } = this.props;
+		setStep(2);
+		this.setState({
+			pickup: location ? location.pickup : null,
+			destination: location ? location.destination : null
+		});
+	}
 
 	showDirection = () => {
 		const { pickup, destination } = this.state;
 		if (pickup && destination) {
-			this.getDistance(pickup, destination);
+			this.getDistance(pickup.coordinate, destination.coordinate);
 			const directionsService = new google.maps.DirectionsService();
 			directionsService.route(
 				{
-					origin: pickup,
-					destination: destination,
+					origin: pickup.coordinate,
+					destination: destination.coordinate,
 					travelMode: google.maps.TravelMode.DRIVING
 				},
 				(result, status) => {
@@ -69,22 +77,33 @@ class LocationSelect extends Component {
 		});
 	};
 
-	buttonClicked = () => {
+	pickupSelected = data => {
+		this.setState({
+			pickup: data
+		});
+		this.showDirection();
+	};
+
+	destinationSelected = data => {
+		this.setState({
+			destination: data
+		});
+		this.showDirection();
+	};
+
+	onClickContinue = () => {
+		const { pickup, destination } = this.state;
+
+		if (!pickup || !destination) {
+			alert("Select pickup and destination");
+			return;
+		}
+
 		this.props.history.push("/vehicle");
-	};
-
-	pickupSelected = coordinate => {
-		this.setState({
-			pickup: coordinate
+		this.props.locationSelected({
+			pickup: pickup,
+			destination: destination
 		});
-		this.showDirection();
-	};
-
-	destinationSelected = coordinate => {
-		this.setState({
-			destination: coordinate
-		});
-		this.showDirection();
 	};
 
 	render() {
@@ -94,7 +113,6 @@ class LocationSelect extends Component {
 		return (
 			<div>
 				<div className={classes.topPanel}>
-					<Header title="Enter your pickup and destination" index={2} />
 					<div className={classes.panel}>
 						<LocationField direction={0} placeSelected={this.pickupSelected} />
 						<Divider orientation="vertical" className={classes.divider} />
@@ -105,7 +123,7 @@ class LocationSelect extends Component {
 						<Button
 							className={classes.button}
 							size="large"
-							onClick={() => this.buttonClicked()}
+							onClick={() => this.onClickContinue()}
 						>
 							Continue
 						</Button>
@@ -115,15 +133,27 @@ class LocationSelect extends Component {
 					</Box>
 				</div>
 				<Map
-					pickup={pickup}
-					destination={destination}
+					pickup={pickup ? pickup.coordinate : null}
+					destination={destination ? destination.coordinate : null}
 					directions={directions}
 					width="100%"
-					height="calc(100vh - 200px)"
+					height="calc(100vh - 250px)"
 				/>
 			</div>
 		);
 	}
 }
 
-export default withStyles(styles)(LocationSelect);
+const mapStateToProps = state => ({
+	location: state.selectedLocation
+});
+
+const mapDispatchToProps = dispatch => ({
+	locationSelected: location => dispatch(locationSelected(location)),
+	setStep: value => dispatch(setStep(value))
+});
+
+export default connect(
+	mapStateToProps,
+	mapDispatchToProps
+)(withStyles(styles)(LocationSelect));

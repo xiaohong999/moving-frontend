@@ -59,8 +59,10 @@ class LocationField extends Component {
 		geocodeByAddress(address)
 			.then(results => getLatLng(results[0]))
 			.then(latLng => {
-				// console.log(latLng);
-				this.props.placeSelected(latLng);
+				this.props.placeSelected({
+					coordinate: latLng,
+					address: address
+				});
 			})
 			.catch(error => console.error("Error", error));
 	};
@@ -78,15 +80,7 @@ class LocationField extends Component {
 		return (
 			<div className={classes.root}>
 				{arrow}
-				{/* <TextField
-					className={classes.input}
-					label={label}
-					fullWidth
-					placeholder={placeholder}
-					InputLabelProps={{
-						shrink: true
-					}}
-				/> */}
+
 				<PlacesAutocomplete
 					value={this.state.address}
 					onChange={this.handleChange}

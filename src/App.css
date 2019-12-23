@@ -5,7 +5,8 @@
 	--colorWhite: white;
 	--colorGray: #848793;
 	--colorYellow: #fff055;
-	--colorLightGray: #cccdd4;
+	--colorLightGray: #dddee4;
+	--colorRed: #de615e;
 
 	text-align: center;
 }
@@ -17,4 +18,316 @@ body {
 		"Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
 		sans-serif;
 	background-color: var(--colorBg);
+}
+
+/* category button */
+.category {
+	border-radius: 20px;
+	background: var(--colorWhite);
+	justify-content: center;
+	cursor: pointer;
+	box-shadow: 0.01em 0.01em 0 var(--colorGray);
+}
+.category.selected,
+.category:hover {
+	background: var(--colorMain);
+	color: var(--colorBg);
+}
+.category .icon {
+	height: 120px;
+	margin: auto;
+	padding: 1em;
+	display: block;
+}
+.category .name {
+	text-align: center;
+	font-size: larger;
+	font-weight: 600;
+}
+.category .arrow {
+	margin: auto;
+	padding: 1em;
+	display: block;
+}
+
+/* vehicle button*/
+.vehicle {
+	border-radius: 20px;
+	background: var(--colorWhite);
+	justify-content: center;
+	cursor: pointer;
+	box-shadow: 0.01em 0.01em 0 var(--colorGray);
+}
+.vehicle:hover,
+.vehicle.selected {
+	background-color: var(--colorMain);
+	color: var(--colorBg);
+}
+.vehicle:hover .title .luggers,
+.vehicle.selected .luggers {
+	background: var(--colorBg);
+	color: var(--colorMain);
+}
+.vehicle:hover .description,
+.vehicle.selected .description {
+	color: var(--colorWhite);
+}
+.vehicle .icon {
+	max-width: 50%;
+	margin: auto;
+	padding: 4em 0 1em 0;
+	display: block;
+}
+.vehicle .title {
+	display: flex;
+	justify-content: center;
+}
+.vehicle .title .name {
+	text-align: center;
+	font-size: 24px;
+	font-weight: 600;
+}
+.vehicle .title .luggers {
+	vertical-align: middle;
+	margin: 5px;
+	padding: 2px 8px;
+	background: var(--colorMain);
+	border-radius: 2px;
+	color: var(--colorWhite);
+	font-size: 12px;
+}
+
+.vehicle .description {
+	color: var(--colorGray);
+	padding: 5px 4em;
+	font-size: 15px;
+	min-height: 40px;
+}
+.vehicle .price {
+	padding: 1em 3em;
+	font-size: 20px;
+	font-weight: 600;
+}
+.vehicle .price .info {
+	padding-left: 5px;
+	margin-top: -5px;
+	vertical-align: middle;
+}
+
+/* vehicle-thumb button */
+.vehicle-thumb-panel {
+	padding: 0 4px;
+}
+
+.vehicle-thumb-panel .item {
+	display: flex;
+	padding: 5px;
+	border: 2px solid var(--colorLightGray);
+	background: var(--colorLightGray);
+	align-items: center;
+	min-height: 100px;
+	margin-right: 6px;
+	cursor: pointer;
+}
+.vehicle-thumb-panel div:first-child .item {
+	border-top-left-radius: 10px;
+	border-bottom-left-radius: 10px;
+}
+.vehicle-thumb-panel div:last-child .item {
+	margin-right: 0;
+	border-top-right-radius: 10px;
+	border-bottom-right-radius: 10px;
+}
+.vehicle-thumb-panel .item:hover {
+	background: var(--colorBg);
+	border: 2px solid var(--colorMain);
+}
+.vehicle-thumb-panel .item.selected {
+	border: 2px solid var(--colorMain);
+	background: var(--colorMain);
+	color: var(--colorBg);
+}
+.vehicle-thumb-panel .item img {
+	max-width: 100%;
+	margin: auto;
+	display: block;
+}
+
+/* date button */
+.button.date {
+	border: 2px solid var(--colorLightGray);
+	overflow: hidden;
+	border-radius: 6px;
+	cursor: pointer;
+	margin: 4px;
+	background: var(--colorLightGray);
+	min-height: 68px;
+}
+.button.date:hover {
+	background: var(--colorBg);
+	border: 2px solid var(--colorMain);
+}
+.button.date.selected {
+	border: 2px solid var(--colorMain);
+	background: var(--colorMain);
+	color: var(--colorWhite);
+}
+.button.date.selected .weekday {
+	color: var(--colorWhite);
+}
+.button.date.selected .first-day {
+	background: var(--colorWhite);
+	color: var(--colorMain);
+}
+.button.date .weekday {
+	font-size: 14px;
+	padding-top: 5px;
+	color: var(--colorGray);
+}
+.button.date .first-day {
+	background: var(--colorRed);
+	color: var(--colorWhite);
+	font-size: 14px;
+	font-weight: 600;
+}
+.button.date .day {
+	padding: 5px;
+	font-size: 24px;
+	font-weight: 600;
+}
+.button.date.more-less {
+	padding-top: 12px;
+	font-weight: 600;
+	background: var(--colorBg);
+	color: var(--colorMain);
+	border: 2px solid var(--colorMain);
+	min-height: 56px;
+}
+.button.date.more-less:hover,
+.button.date.more-less.selected {
+	background: var(--colorMain);
+	color: var(--colorWhite);
+}
+
+/* time button */
+.button.time {
+	border: 2px solid var(--colorLightGray);
+	padding: 8px 10px;
+	cursor: pointer;
+	background: var(--colorLightGray);
+	border-radius: 8px;
+}
+.button.time:hover {
+	border: 2px solid var(--colorMain);
+}
+.button.time.selected {
+	border: 2px solid var(--colorMain);
+	background: var(--colorMain);
+	color: var(--colorWhite);
+}
+
+/*price preview*/
+.preview,
+.payment-method {
+	margin-top: 20px;
+	width: 100%;
+	background: var(--colorWhite);
+	border-radius: 10px;
+	padding: 10px;
+	/* border: 2px solid var(--colorMain); */
+	box-sizing: border-box;
+}
+
+.preview-location {
+	display: flex;
+	align-items: center;
+	margin-bottom: 8px;
+}
+.preview-location .icon {
+	padding: 10px;
+	width: 30px;
+	height: 30px;
+}
+.preview-location .info {
+	text-align: left;
+}
+.preview-location .info .label {
+	font-size: 12px;
+	color: var(--colorMain);
+	padding: 4px;
+}
+.preview-location .info .address {
+	font-size: 18px;
+	padding: 4px;
+}
+.preview-distance {
+	display: flex;
+	align-items: center;
+	font-size: 20px;
+	font-weight: bold;
+	padding-left: 20px;
+	margin: 20px 0;
+	text-align: left;
+}
+
+.preview-time-price {
+	margin-bottom: 8px;
+	padding: 5px 10px;
+}
+.preview-time-price .label {
+	display: flex;
+	align-items: center;
+}
+
+.preview-time-price .label .icon {
+	width: 28px;
+	height: 28px;
+	color: var(--colorMain);
+}
+.preview-time-price .label .text {
+	padding-left: 10px;
+	font-size: 12px;
+	text-align: left;
+	color: var(--colorMain);
+}
+
+.preview-time-price .info {
+	padding-left: 33px;
+	text-align: left;
+}
+.preview-time-price .info .date {
+	padding: 4px;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.preview-time-price .info .time {
+	padding: 4px;
+}
+
+.preview-time-price .info.value {
+	padding-left: 36px;
+	font-size: 18px;
+	font-weight: bold;
+}
+
+.payment-method .label {
+	text-align: left;
+	color: var(--colorMain);
+}
+.payment-method .kind {
+	display: flex;
+	justify-content: center;
+}
+.payment-method .kind .item {
+	border: 2px solid var(--colorMain);
+	border-radius: 10px;
+	cursor: pointer;
+	margin: 5px;
+	padding: 5px;
+	max-width: 60px;
+	max-height: 60px;
+}
+.payment-method .kind .item:hover {
+	background: var(--colorMain);
 }
