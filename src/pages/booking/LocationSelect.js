@@ -1,10 +1,10 @@
 /*global google*/
 import React, { Component } from "react";
 import { withStyles, Button, Divider, Box } from "@material-ui/core";
-import LocationField from "../components/LocationField";
-import Map from "../components/Map";
+import LocationField from "../../components/LocationField";
+import Map from "../../components/Map";
 import { connect } from "react-redux";
-import { locationSelected, setStep } from "../redux/actions";
+import { locationSelected, setStep } from "../../redux/actions";
 
 const styles = {
 	topPanel: {
@@ -99,7 +99,7 @@ class LocationSelect extends Component {
 			return;
 		}
 
-		this.props.history.push("/vehicle");
+		this.props.history.push("/book/vehicle");
 		this.props.locationSelected({
 			pickup: pickup,
 			destination: destination
@@ -129,7 +129,7 @@ class LocationSelect extends Component {
 						</Button>
 					</div>
 					<Box mt={1}>
-						distance : {Number.parseFloat(distance / 1000).toFixed(2)}km
+						Distance : {Number.parseFloat(distance / 1000).toFixed(2)}km
 					</Box>
 				</div>
 				<Map
@@ -137,7 +137,7 @@ class LocationSelect extends Component {
 					destination={destination ? destination.coordinate : null}
 					directions={directions}
 					width="100%"
-					height="calc(100vh - 250px)"
+					height="calc(100vh - 200px)"
 				/>
 			</div>
 		);

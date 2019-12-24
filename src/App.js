@@ -1,18 +1,18 @@
 import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-
-import "./App.css";
-import CategorySelect from "./pages/CategorySelect";
-import LocationSelect from "./pages/LocationSelect";
-import VehicleSelect from "./pages/VehicleSelect";
-import TimeSelect from "./pages/TimeSelect";
-
 import { Provider } from "react-redux";
 import { createStore } from "redux";
+
+import "./App.css";
+import Home from "./pages/Home";
+
 import reducer from "./redux/reducers";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-import PricePreview from "./pages/PricePreview";
+import TopBar from "./pages/booking/TopBar";
+import LocationSelect from "./pages/booking/LocationSelect";
+import CategorySelect from "./pages/booking/CategorySelect";
+import VehicleSelect from "./pages/booking/VehicleSelect";
+import TimeSelect from "./pages/booking/TimeSelect";
+import PricePreview from "./pages/booking/PricePreview";
 
 const store = createStore(reducer);
 
@@ -20,19 +20,21 @@ function App() {
 	return (
 		<Provider store={store}>
 			<div>
-				<Header />
 				<BrowserRouter>
 					<Switch>
-						<Route exact path="/" component={CategorySelect} />
-						<Route exact path="/location" component={LocationSelect} />
-						<Route exact path="/vehicle" component={VehicleSelect} />
-						<Route exact path="/time" component={TimeSelect} />
-						<Route exact path="/preview" component={PricePreview} />
+						<Route exact path="/" component={Home} />
+						<Route>
+							<TopBar />
+							<Route exact path="/book" component={CategorySelect} />
+							<Route exact path="/book/category" component={CategorySelect} />
+							<Route exact path="/book/location" component={LocationSelect} />
+							<Route exact path="/book/vehicle" component={VehicleSelect} />
+							<Route exact path="/book/time" component={TimeSelect} />
+							<Route exact path="/book/preview" component={PricePreview} />
+						</Route>
 					</Switch>
 				</BrowserRouter>
-				<div style={{ height: 50 }} />
 			</div>
-			<Footer />
 		</Provider>
 	);
 }

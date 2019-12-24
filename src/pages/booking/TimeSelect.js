@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { Grid, Box, Container, Button } from "@material-ui/core";
-import { get30DaysFromNow } from "../utils/Utils";
+import { get30DaysFromNow } from "../../utils/Utils";
 import { connect } from "react-redux";
-import { dateSelected, setStep } from "../redux/actions";
+import { dateSelected, setStep } from "../../redux/actions";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 
 class TimeSelect extends Component {
@@ -130,7 +130,7 @@ class TimeSelect extends Component {
 			return;
 		}
 
-		this.props.history.push("/preview");
+		this.props.history.push("/book/preview");
 		this.props.dateSelected(
 			vehicles[selectedVehicleIndex],
 			days[selectedDayIndex],

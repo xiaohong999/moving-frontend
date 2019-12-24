@@ -38,7 +38,7 @@ export default class Map extends Component {
 					<Marker
 						position={pickup}
 						icon={{
-							url: "./pin-up.png",
+							url: "../pin-up.png",
 							scaledSize: new window.google.maps.Size(40, 40)
 						}}
 					/>
@@ -49,7 +49,7 @@ export default class Map extends Component {
 					<Marker
 						position={destination}
 						icon={{
-							url: "./pin-down.png",
+							url: "../pin-down.png",
 							scaledSize: new window.google.maps.Size(40, 40)
 						}}
 					/>

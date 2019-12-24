@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { Grid, withStyles, Button, Container } from "@material-ui/core";
-import Vehicle from "../components/Vehicle";
+import Vehicle from "../../components/Vehicle";
 import { connect } from "react-redux";
-import { vehicleSelected, setStep } from "../redux/actions";
+import { vehicleSelected, setStep } from "../../redux/actions";
 
 const styles = {
 	button: {
@@ -14,7 +14,7 @@ const styles = {
 
 class VehicleSelect extends Component {
 	onClickVehicle = vehicle => {
-		this.props.history.push("/time");
+		this.props.history.push("/book/time");
 		this.props.vehicleSelected(vehicle);
 	};
 

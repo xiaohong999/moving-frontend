@@ -23,7 +23,7 @@ const styles = {
 	}
 };
 
-class Header extends Component {
+class TopBar extends Component {
 	render() {
 		const { classes, title, step } = this.props;
 		return (
@@ -41,4 +41,4 @@ function mapStateToProps(state) {
 		step: state.step
 	};
 }
-export default connect(mapStateToProps)(withStyles(styles)(Header));
+export default connect(mapStateToProps)(withStyles(styles)(TopBar));

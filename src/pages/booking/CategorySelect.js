@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import { Grid, Container } from "@material-ui/core";
-import Category from "../components/Category";
-import RatingBar from "../components/RatingBar";
+import Category from "../../components/Category";
+import RatingBar from "../../components/RatingBar";
 import { connect } from "react-redux";
-import { categorySelected, setStep } from "../redux/actions";
+import { categorySelected, setStep } from "../../redux/actions";
 
 class CategorySelect extends Component {
 	onClickCategory = category => {
-		this.props.history.push("/location");
+		this.props.history.push("/book/location");
 		this.props.categorySelected(category);
 	};
 

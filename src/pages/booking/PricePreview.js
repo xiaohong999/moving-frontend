@@ -1,11 +1,11 @@
 /*global google*/
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { setStep } from "../redux/actions";
+import { setStep } from "../../redux/actions";
 import { Container, Grid } from "@material-ui/core";
-import Map from "../components/Map";
+import Map from "../../components/Map";
 import { FiCalendar, FiDollarSign } from "react-icons/fi";
-import { getDateString } from "../utils/Utils";
+import { getDateString } from "../../utils/Utils";
 
 class PricePreview extends Component {
 	state = {
@@ -83,9 +83,9 @@ class PricePreview extends Component {
 				/>
 				<div className="preview">
 					<Grid container>
-						<Grid item sm={6} xs={12}>
+						<Grid item sm={6} xs={12} style={{ paddingTop: 10 }}>
 							<div className="preview-location">
-								<img className="icon" src="pin-up.png" alt="icon" />
+								<img className="icon" src="../pin-up.png" alt="icon" />
 								<div className="info">
 									<div className="label">Pickup address:</div>
 									<div className="address">
@@ -94,7 +94,7 @@ class PricePreview extends Component {
 								</div>
 							</div>
 							<div className="preview-location">
-								<img className="icon" src="pin-down.png" alt="icon" />
+								<img className="icon" src="../pin-down.png" alt="icon" />
 								<div className="info">
 									<div className="label">Destination:</div>
 									<div className="address">
@@ -102,7 +102,7 @@ class PricePreview extends Component {
 									</div>
 								</div>
 							</div>
-							<div className="preview-distance">
+							{/* <div className="preview-distance">
 								<span
 									style={{
 										color: "var(--colorMain)",
@@ -115,7 +115,7 @@ class PricePreview extends Component {
 									Distance :
 								</span>
 								<span>{Number.parseFloat(distance / 1000).toFixed(2)}km</span>
-							</div>
+							</div> */}
 						</Grid>
 						<Grid item sm={6} xs={12}>
 							<div className="preview-time-price">

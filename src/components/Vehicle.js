@@ -17,7 +17,7 @@ export default class Vehicle extends Component {
 				</div>
 				<div className="description">{vehicle.description}</div>
 				<div className="price">
-					${vehicle.price} + ${vehicle.additionalPrice} per labor min
+					${vehicle.price} + ${vehicle.additionalPrice} per km
 					<MdInfoOutline className="info" size={24} />
 				</div>
 			</div>
