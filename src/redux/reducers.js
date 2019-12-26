@@ -11,72 +11,66 @@ const titles = [
 const initialCategories = [
 	{
 		id: 1,
-		name: "Store Delivery",
-		icon: "https://image.flaticon.com/icons/png/512/1077/1077976.png"
+		name: "Move Anything",
+		icon: "c-01.png"
 	},
 	{
 		id: 2,
-		name: "Small Move",
-		icon: "https://image.flaticon.com/icons/png/512/1519/1519034.png"
+		name: "Trademe Pickup",
+		icon: "c-02.png"
 	},
 	{
 		id: 3,
 		name: "Storage Move",
-		icon: "https://image.flaticon.com/icons/png/512/755/755912.png"
+		icon: "c-03.png"
 	},
 	{
 		id: 4,
-		name: "Craigslist Pickup",
-		icon: "https://image.flaticon.com/icons/png/512/1786/1786971.png"
+		name: "Small Move",
+		icon: "c-04.png"
 	},
 	{
 		id: 5,
-		name: "Donations",
-		icon: "https://image.flaticon.com/icons/png/512/101/101976.png"
+		name: "Store Delivery",
+		icon: "c-05.png"
 	},
 	{
 		id: 6,
-		name: "Junk Removal",
-		icon: "https://image.flaticon.com/icons/png/512/2165/2165371.png"
+		name: "Urgent Across Town",
+		icon: "c-06.png"
 	}
 ];
 
 const initialVehicles = [
 	{
 		id: 1,
-		name: "Pickup",
+		name: "Car",
 		luggers: 1,
 		description: "Single item deliveries, small moves and smaller loads.",
 		price: 47,
 		additionalPrice: 0.8,
-		icon: "https://lugg.com/static/media/large-lite.7ea517c6.png"
+		pricePerKm: 1.5,
+		icon: "../v-01.png"
 	},
 	{
 		id: 2,
-		name: "Pickup",
-		luggers: 2,
+		name: "Van",
+		luggers: 1,
 		description: "Single item deliveries, small moves and smaller loads.",
 		price: 63,
 		additionalPrice: 1.4,
-		icon: "https://lugg.com/static/media/large-pickup.a14710e4.png"
+		pricePerKm: 3.0,
+		icon: "../v-02.png"
 	},
 	{
 		id: 3,
-		name: "Van",
+		name: "Truck",
 		luggers: 2,
-		description: "Multi-item deliveries and small moves.",
+		description: "Single item deliveries, small moves and smaller loads.",
 		price: 100,
 		additionalPrice: 1.75,
-		icon: "https://lugg.com/static/media/large-van.1015d727.png"
-	},
-	{
-		id: 4,
-		name: "XL",
-		luggers: 2,
-		description: "Bulk furniture purchases, home staging and bigger moves.",
-		price: 149,
-		additionalPrice: 2,
-		icon: "https://lugg.com/static/media/large-xl.2e464cd1.png"
+		pricePerKm: 4.0,
+		icon: "../v-03.png"
 	}
 ];
 

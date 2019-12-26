@@ -153,7 +153,7 @@ class TimeSelect extends Component {
 				<Box mb={2}>
 					<Grid container className="vehicle-thumb-panel">
 						{vehicles.map((vehicle, i) => (
-							<Grid key={vehicle.id} item xs={3}>
+							<Grid key={vehicle.id} item xs={4}>
 								<div
 									className={`item ${
 										selectedVehicleIndex === i ? "selected" : ""

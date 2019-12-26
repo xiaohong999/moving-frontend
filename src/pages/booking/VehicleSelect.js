@@ -23,14 +23,17 @@ class VehicleSelect extends Component {
 	}
 
 	render() {
-		const { classes, vehicles } = this.props;
+		const { classes, vehicles, location } = this.props;
 		return (
 			<Container maxWidth="md" style={{ marginBottom: 10 }}>
 				<Grid container justify="center" spacing={2}>
 					{vehicles.map(vehicle => (
-						<Grid key={vehicle.id} sm={6} xs={12} item>
+						<Grid key={vehicle.id} sm={4} xs={12} item>
 							<div onClick={this.onClickVehicle.bind(this, vehicle)}>
-								<Vehicle vehicle={vehicle} />
+								<Vehicle
+									vehicle={vehicle}
+									distance={location ? location.distance : null}
+								/>
 							</div>
 						</Grid>
 					))}
@@ -45,6 +48,7 @@ class VehicleSelect extends Component {
 
 const mapStateToProps = state => ({
 	vehicles: state.vehicles,
+	location: state.selectedLocation,
 	selectedVehicle: state.selectedVehicle
 });
 

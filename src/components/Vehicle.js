@@ -3,10 +3,12 @@ import { MdInfoOutline } from "react-icons/md";
 
 export default class Vehicle extends Component {
 	render() {
-		const { vehicle, selected } = this.props;
+		const { vehicle, distance, selected } = this.props;
 		return (
 			<div className={`vehicle ${selected ? "selected" : ""}`}>
-				<img className="icon" src={vehicle.icon} alt="icon" />
+				<div className="icon">
+					<img src={vehicle.icon} alt="icon" />
+				</div>
 				<div className="title">
 					<div className="name">{vehicle.name}</div>
 					<div className="luggers">
@@ -17,8 +19,10 @@ export default class Vehicle extends Component {
 				</div>
 				<div className="description">{vehicle.description}</div>
 				<div className="price">
-					${vehicle.price} + ${vehicle.additionalPrice} per km
-					<MdInfoOutline className="info" size={24} />
+					$
+					{Number(
+						vehicle.pricePerKm * Number.parseFloat(distance / 1000)
+					).toFixed(2)}
 				</div>
 			</div>
 		);

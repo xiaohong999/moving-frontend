@@ -39,10 +39,7 @@ class Home extends Component {
 					>
 						<div className="banner">
 							<div className="title">
-								<img
-									className="icon"
-									src="https://image.flaticon.com/icons/png/512/145/145867.png"
-								/>
+								<img className="icon" src="boy.png" />
 								Hong
 							</div>
 							<div className="description">
@@ -54,10 +51,7 @@ class Home extends Component {
 						</div>
 						<div className="banner">
 							<div className="title">
-								<img
-									className="icon"
-									src="https://image.flaticon.com/icons/png/512/145/145862.png"
-								/>
+								<img className="icon" src="girl.png" />
 								Mei
 							</div>
 							<div className="description">
@@ -70,7 +64,7 @@ class Home extends Component {
 					</Carousel>
 				</Container>
 				<Grid container justify="center" style={{ marginTop: 20 }}>
-					<Grid item md={9} sm={10} xs={12}>
+					<Grid item md={8} sm={10} xs={12}>
 						<Grid container justify="center" spacing={3}>
 							{categories.map(category => (
 								<Grid key={category.id} sm={4} xs={12} item>
@@ -86,30 +80,28 @@ class Home extends Component {
 					<div className="title">How it works</div>
 					<div className="subtitle">Anything moved in 3 easy steps</div>
 					<div className="image">
-						<img src="https://lugg.com/static/media/hand-with-couch.db21deb9.png" />
+						<img src="howitworks.png" />
 					</div>
 					<div className="step">
-						<div className="title">1. Request to us</div>
+						<div className="title">1. Book Online</div>
 						<div className="subtitle">
 							Set your pickup location and destination, choose the size of
-							vehicle that is right for you, and when you would like us to
-							arrive.
+							vehicle that is right for you and let us know what time you want
+							us to arrive.
 						</div>
 					</div>
 					<div className="step">
-						<div className="title">2. Request to us</div>
+						<div className="title">2. Relax</div>
 						<div className="subtitle">
-							Set your pickup location and destination, choose the size of
-							vehicle that is right for you, and when you would like us to
-							arrive.
+							We’ll get your item(s) picked you and delivered, keeping you
+							updated via txt message.
 						</div>
 					</div>
 					<div className="step">
-						<div className="title">3. Request to us</div>
+						<div className="title">3. Rate Us</div>
 						<div className="subtitle">
-							Set your pickup location and destination, choose the size of
-							vehicle that is right for you, and when you would like us to
-							arrive.
+							Loved your experience using Lug? We’ll email you a link where you
+							can tell us about your experience.
 						</div>
 					</div>
 				</div>

@@ -92,7 +92,7 @@ class LocationSelect extends Component {
 	};
 
 	onClickContinue = () => {
-		const { pickup, destination } = this.state;
+		const { pickup, destination, distance } = this.state;
 
 		if (!pickup || !destination) {
 			alert("Select pickup and destination");
@@ -102,7 +102,8 @@ class LocationSelect extends Component {
 		this.props.history.push("/book/vehicle");
 		this.props.locationSelected({
 			pickup: pickup,
-			destination: destination
+			destination: destination,
+			distance: distance
 		});
 	};
 

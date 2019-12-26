@@ -76,14 +76,18 @@ h3 {
 	color: var(--colorWhite);
 }
 .vehicle .icon {
-	max-width: 50%;
+	min-height: 140px;
+}
+.vehicle .icon > img {
+	max-width: 60%;
 	margin: auto;
-	padding: 4em 0 1em 0;
+	padding: 3em 0 1em 0;
 	display: block;
 }
 .vehicle .title {
 	display: flex;
 	justify-content: center;
+	padding-bottom: 5px;
 }
 .vehicle .title .name {
 	text-align: center;
@@ -102,12 +106,12 @@ h3 {
 
 .vehicle .description {
 	color: var(--colorGray);
-	padding: 5px 4em;
+	padding: 5px 20px;
 	font-size: 15px;
 	min-height: 40px;
 }
 .vehicle .price {
-	padding: 1em 3em;
+	padding: 14px;
 	font-size: 20px;
 	font-weight: 600;
 }

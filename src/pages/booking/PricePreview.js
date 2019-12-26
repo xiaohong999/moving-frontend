@@ -144,17 +144,23 @@ class PricePreview extends Component {
 								<div className="info value">
 									{bookData.selectedVehicle ? (
 										<div>
-											$1,234
-											<span
+											$
+											{Number(
+												bookData.selectedVehicle.pricePerKm *
+													Number.parseFloat(
+														bookData.selectedLocation.distance / 1000
+													)
+											).toFixed(2)}
+											{/* <span
 												style={{
 													paddingLeft: 5,
 													fontSize: 14,
 													fontWeight: 400
 												}}
 											>
-												(${bookData.selectedVehicle.price} + $
-												{bookData.selectedVehicle.additionalPrice} per km)
-											</span>
+												(${bookData.selectedVehicle.pricePerKm} * $
+												{bookData.selectedLocation.distance}km)
+											</span> */}
 										</div>
 									) : (
 										"Not selected"
@@ -167,26 +173,10 @@ class PricePreview extends Component {
 				<div className="payment-method">
 					<div className="label">Payment method</div>
 					<div className="kind">
-						<img
-							className="item"
-							src="https://image.flaticon.com/icons/png/512/196/196561.png"
-							alt="master card"
-						/>
-						<img
-							className="item"
-							src="https://image.flaticon.com/icons/png/512/196/196578.png"
-							alt="visa"
-						/>
-						<img
-							className="item"
-							src="https://image.flaticon.com/icons/png/512/196/196566.png"
-							alt="paypal"
-						/>
-						<img
-							className="item"
-							src="https://image.flaticon.com/icons/png/512/196/196543.png"
-							alt="bitcoin"
-						/>
+						<img className="item" src="../pay-01.png" alt="master card" />
+						<img className="item" src="../pay-02.png" alt="visa" />
+						<img className="item" src="../pay-03.png" alt="paypal" />
+						<img className="item" src="../pay-04.png" alt="bitcoin" />
 					</div>
 				</div>
 			</Container>

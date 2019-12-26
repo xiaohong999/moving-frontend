@@ -26,7 +26,6 @@ function App() {
 						<Route>
 							<TopBar />
 							<Route exact path="/book" component={CategorySelect} />
-							<Route exact path="/book/category" component={CategorySelect} />
 							<Route exact path="/book/location" component={LocationSelect} />
 							<Route exact path="/book/vehicle" component={VehicleSelect} />
 							<Route exact path="/book/time" component={TimeSelect} />
