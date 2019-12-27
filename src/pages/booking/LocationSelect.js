@@ -1,14 +1,28 @@
 /*global google*/
 import React, { Component } from "react";
-import { withStyles, Button, Divider, Box } from "@material-ui/core";
+import {
+	withStyles,
+	Button,
+	Container,
+	Grid,
+	Divider,
+	Box
+} from "@material-ui/core";
 import LocationField from "../../components/LocationField";
 import Map from "../../components/Map";
 import { connect } from "react-redux";
 import { locationSelected, setStep } from "../../redux/actions";
 
 const styles = {
+	root: {
+		padding: "10px 20px",
+		background: "var(--colorWhite)",
+		borderRadius: 10,
+		marginBottom: 16
+	},
+
 	topPanel: {
-		height: 110
+		height: 120
 	},
 	panel: {
 		background: "var(--colorWhite)",
@@ -113,7 +127,7 @@ class LocationSelect extends Component {
 
 		return (
 			<div>
-				<div className={classes.topPanel}>
+				{/* <div className={classes.topPanel}>
 					<div className={classes.panel}>
 						<LocationField direction={0} placeSelected={this.pickupSelected} />
 						<Divider orientation="vertical" className={classes.divider} />
@@ -132,13 +146,46 @@ class LocationSelect extends Component {
 					<Box mt={1}>
 						Distance : {Number.parseFloat(distance / 1000).toFixed(2)}km
 					</Box>
-				</div>
+				</div> */}
+				<Container maxWidth="md">
+					<Grid container justify="center" className={classes.root}>
+						<Grid item sm={5} xs={12} style={{ paddingRight: 20 }}>
+							<LocationField
+								direction={0}
+								placeSelected={this.pickupSelected}
+							/>
+						</Grid>
+						<Grid item sm={5} xs={12} style={{ paddingRight: 20 }}>
+							<LocationField
+								direction={1}
+								placeSelected={this.destinationSelected}
+							/>
+						</Grid>
+						<Grid item sm={2} xs={12}>
+							<Button
+								fullWidth
+								style={{
+									padding: 12,
+									marginTop: 8,
+									background: "var(--colorYellow)"
+								}}
+								onClick={this.onClickContinue}
+							>
+								Continue
+							</Button>
+						</Grid>
+					</Grid>
+				</Container>
+				<Box mt={1} mb={2}>
+					Distance : {Number.parseFloat(distance / 1000).toFixed(2)}km
+				</Box>
+
 				<Map
 					pickup={pickup ? pickup.coordinate : null}
 					destination={destination ? destination.coordinate : null}
 					directions={directions}
 					width="100%"
-					height="calc(100vh - 200px)"
+					height="calc(100vh - 230px)"
 				/>
 			</div>
 		);

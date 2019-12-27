@@ -1,55 +1,23 @@
 import React, { Component } from "react";
-import { TextField, withStyles } from "@material-ui/core";
+import { TextField } from "@material-ui/core";
 import { MdArrowUpward, MdArrowDownward } from "react-icons/md";
 import PlacesAutocomplete, {
 	geocodeByAddress,
 	getLatLng
 } from "react-places-autocomplete";
 
-const styles = {
-	root: {
-		display: "inline-flex",
-		alignItems: "center",
-		width: 300,
-		marginRight: 20
-	},
-	arrow: {
-		margin: 15,
-		marginLeft: 0,
-		color: "var(--colorGray)"
-	},
-	input: {
-		width: "100%"
-	},
-	dropDown: {
-		position: "absolute",
-		width: 330,
-		marginTop: 14,
-		marginLeft: -40,
-		borderRadius: 6,
-		zIndex: 999,
-		overflow: "hidden"
-	},
-	itemActive: {
-		padding: "10px 5px",
-		background: "var(--colorMain)",
-		color: "var(--colorWhite)"
-	},
-	itemNormal: {
-		padding: "10px 5px",
-		background: "var(--colorWhite)",
-		color: "var(--colorBlack)"
-	}
-};
-
-class LocationField extends Component {
+export default class LocationField extends Component {
 	constructor(props) {
 		super(props);
 		this.state = { address: "" };
+		this.locationInput = React.createRef();
 	}
 
 	handleChange = address => {
 		this.setState({ address });
+		this.setState({
+			inputWidth: this.locationInput.current.offsetWidth
+		});
 	};
 
 	handleSelect = address => {
@@ -69,16 +37,17 @@ class LocationField extends Component {
 
 	render() {
 		const { classes, direction } = this.props;
+		let dropDownWidth = this.state.inputWidth ? this.state.inputWidth + 70 : 0;
 		const arrow =
 			direction === 0 ? (
-				<MdArrowUpward className={classes.arrow} />
+				<MdArrowUpward className="arrow" />
 			) : (
-				<MdArrowDownward className={classes.arrow} />
+				<MdArrowDownward className="arrow" />
 			);
 		const label = direction === 0 ? "Pickup address" : "Destination";
 		const placeholder = direction === 0 ? "Enter pickup" : "Enter destination";
 		return (
-			<div className={classes.root}>
+			<div className="location">
 				{arrow}
 
 				<PlacesAutocomplete
@@ -86,29 +55,26 @@ class LocationField extends Component {
 					onChange={this.handleChange}
 					onSelect={this.handleSelect}
 				>
-					{({
-						getInputProps,
-						suggestions,
-						getSuggestionItemProps,
-						loading
-					}) => (
-						<div className={classes.input}>
+					{({ getInputProps, suggestions, getSuggestionItemProps }) => (
+						<div className="location-input">
 							<TextField
+								ref={this.locationInput}
 								{...getInputProps({
 									label: label,
 									placeholder: placeholder,
-									className: classes.input,
+									className: "location-input",
 									InputLabelProps: {
 										shrink: true
 									}
 								})}
 							/>
-							<div className={classes.dropDown}>
-								{loading && <div>Loading...</div>}
+							<div
+								className="location-drop-down"
+								style={{ width: dropDownWidth }}
+							>
+								{/* {loading && <div>Loading...</div>} */}
 								{suggestions.map(suggestion => {
-									const className = suggestion.active
-										? classes.itemActive
-										: classes.itemNormal;
+									const className = suggestion.active ? "active" : "normal";
 									// inline style for demonstration purpose
 									return (
 										<div
@@ -128,4 +94,3 @@ class LocationField extends Component {
 		);
 	}
 }
-export default withStyles(styles)(LocationField);

@@ -339,54 +339,126 @@ h3 {
 	background: var(--colorMain);
 }
 
-/* Home Page*/
-.main-header {
-	display: flex;
-	justify-content: center;
+/* Home Page */
+
+.top-menu {
 	padding: 10px;
-	font-size: 20px;
-	font-weight: 600;
+	user-select: none;
 	border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-}
-.main-header .logo,
-.main-header .menu {
-	cursor: pointer;
-	color: var(--colorWhite);
-	text-decoration: none;
-}
-.main-header .logo {
-	font-size: 30px;
-	font-weight: bold;
-	text-shadow: 1px 1px 1px black;
-	padding-right: 30px;
-}
-.main-header .menu {
-	padding: 10px 20px;
-}
-.main-header .logo:hover,
-.main-header .menu:hover {
-	color: var(--colorMain);
+	margin: 0 10px;
 }
 
-.main-header .menu.book {
-	margin-left: 20px;
+.top-menu a {
+	text-decoration: none;
+	color: white;
+}
+.top-menu a:hover {
+	color: var(--colorMain);
+}
+.top-menu a.book {
 	border: 2px solid var(--colorWhite);
 	border-radius: 6px;
 }
-.main-header .menu.book:hover {
+@media screen and (max-width: 600px) {
+	.top-menu a.book {
+		text-align: center !important;
+	}
+}
+.top-menu a.book:hover {
 	border: 2px solid var(--colorMain);
 }
 
-.home > .title,
-.home > .subtitle {
-	color: var(--colorWhite);
+.top-menu > .menu {
+	display: inline-flex;
 }
-.home > .title {
+.top-menu > .menu > * {
+	padding: 10px 15px;
+	display: inline-flex;
+	text-align: center;
+	font-size: 18px;
+}
+
+.top-menu .top-menu-icon {
+	padding: 10px;
+	position: absolute;
+	top: 0;
+	right: 0;
+	display: none;
+	color: white;
+	width: 40px;
+	height: 40px;
+	cursor: pointer;
+}
+
+@media screen and (max-width: 600px) {
+	.top-menu {
+		padding: 40px 20px 20px 20px;
+		max-height: 0;
+		overflow: hidden;
+	}
+
+	.top-menu > .menu {
+		display: none;
+	}
+
+	.top-menu-icon {
+		display: block !important;
+	}
+}
+
+@media screen and (max-width: 600px) {
+	.top-menu.collapsed {
+		padding: 60px 0 0 0;
+		max-height: 1500px;
+		transition: max-height 1s;
+	}
+
+	.top-menu.collapsed *:not(.top-menu-lead):not(.top-menu-icon) {
+		float: none;
+		display: block !important;
+		text-align: left;
+		margin: 0;
+	}
+}
+
+.top-menu-lead {
+	padding: 10px 30px;
+	color: white;
+	display: inline-flex;
+	font-size: 28px;
+	font-weight: bold;
+	text-shadow: 1px 1px black;
+}
+
+@media screen and (max-width: 600px) {
+	.top-menu-lead {
+		position: absolute;
+		top: 0;
+		left: 10px;
+		float: none;
+	}
+}
+
+/* Home body*/
+.home > .bg {
+	position: absolute;
+	background-repeat: no-repeat;
+	background-size: cover;
+	width: 100%;
+	height: 100%;
+	z-index: 0;
+}
+.home > .container > .title,
+.home > .container > .subtitle {
+	color: var(--colorWhite);
+	padding: 0 10px;
+}
+.home > .container > .title {
 	margin-top: 50px;
 	font-size: 70px;
 	font-weight: bold;
 }
-.home > .subtitle {
+.home > .container > .subtitle {
 	font-size: 36px;
 	font-weight: 600;
 }
@@ -418,33 +490,33 @@ h3 {
 	padding-bottom: 20px;
 }
 
-.home > .how-works {
+.how-works {
 	margin-top: 20px;
 	padding: 20px;
 }
-.home > .how-works > .title {
+.how-works > .title {
 	font-size: 44px;
 	font-weight: bold;
 }
-.home > .how-works > .subtitle {
+.how-works > .subtitle {
 	font-size: 18px;
 	font-weight: 600;
 	color: var(--colorGray);
 }
-.home > .how-works > .image {
+.how-works > .image {
 	display: flex;
 	margin-top: 20px;
 	justify-content: center;
 }
-.home > .how-works > .step {
+.how-works > .step {
 	margin-top: 20px;
 }
-.home > .how-works > .step > .title {
+.how-works > .step > .title {
 	padding: 10px;
 	font-size: 24px;
 	font-weight: bold;
 }
-.home > .how-works > .step > .description {
+.how-works > .step > .description {
 	padding: 5px;
 	font-size: 16px;
 }
@@ -475,4 +547,47 @@ h3 {
 }
 .footer > .center > div {
 	display: inline-flex;
+}
+
+/* Location */
+.location {
+	display: inline-flex;
+	align-items: center;
+	width: 100%;
+	padding: 10px 0;
+}
+.location .arrow {
+	margin: 15px;
+	margin-left: 0;
+	color: var(--colorGray);
+}
+
+.location-input {
+	width: 100%;
+}
+
+.location-drop-down {
+	position: absolute;
+	margin-top: 22px;
+	margin-left: -49px;
+
+	border-radius: 6px;
+	z-index: 999;
+	overflow: hidden;
+}
+.location-drop-down > .active {
+	padding: 10px 5px;
+	background: var(--colorMain);
+	color: var(--colorWhite);
+}
+
+.location-drop-down > .normal {
+	padding: 10px 5px;
+	background: var(--colorWhite);
+	color: var(--colorBlack);
+}
+@media screen and (max-width: 600px) {
+	.location-drop-down {
+		margin-left: -39px;
+	}
 }
