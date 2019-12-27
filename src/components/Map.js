@@ -16,7 +16,7 @@ export default class Map extends Component {
 						? pickup
 						: destination
 						? destination
-						: { lat: 40.756795, lng: -73.954298 }
+						: { lat: -36.8485, lng: 174.7633 }
 				}
 				defaultZoom={10}
 			>
