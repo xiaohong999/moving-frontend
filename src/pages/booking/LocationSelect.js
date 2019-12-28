@@ -1,13 +1,6 @@
 /*global google*/
 import React, { Component } from "react";
-import {
-	withStyles,
-	Button,
-	Container,
-	Grid,
-	Divider,
-	Box
-} from "@material-ui/core";
+import { withStyles, Button, Container, Grid, Box } from "@material-ui/core";
 import LocationField from "../../components/LocationField";
 import Map from "../../components/Map";
 import { connect } from "react-redux";

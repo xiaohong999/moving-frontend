@@ -19,7 +19,6 @@ body {
 		sans-serif;
 	background-color: var(--colorBg);
 }
-
 h3 {
 	margin: 10px 0;
 }
@@ -234,7 +233,9 @@ h3 {
 }
 
 /*price preview*/
-.preview,
+.preview {
+	padding: 20px;
+}
 .payment-method {
 	margin-top: 20px;
 	width: 100%;
@@ -264,7 +265,7 @@ h3 {
 	padding: 4px;
 }
 .preview-location .info .address {
-	font-size: 20px;
+	font-size: 18px;
 	padding: 4px;
 }
 .preview-distance {
@@ -293,7 +294,7 @@ h3 {
 }
 .preview-time-price .label .text {
 	padding-left: 10px;
-	font-size: 12px;
+	font-size: 13px;
 	text-align: left;
 	color: var(--colorMain);
 }
@@ -590,4 +591,58 @@ h3 {
 	.location-drop-down {
 		margin-left: -39px;
 	}
+}
+
+/* Checkout */
+.checkout {
+	padding: 20px;
+}
+.checkout > .price {
+	display: flex;
+	align-items: center;
+	margin-bottom: 10px;
+}
+.checkout > .price > .label {
+	font-size: 18px;
+	font-weight: 600;
+	color: var(--colorMain);
+	padding-right: 5px;
+}
+.checkout > .price > .value {
+	font-size: 26px;
+	font-weight: bold;
+}
+.checkout > .group {
+	padding: 10px 0;
+}
+.checkout > .group > .row {
+	padding: 10px;
+	border: 1px solid var(--colorLightGray);
+}
+.checkout > .group > .row.select {
+	padding: 10px 0;
+}
+
+.checkout > .group > .row.card {
+	padding: 12px 10px;
+}
+.checkout > .group > .row:first-child {
+	border-top-left-radius: 6px;
+	border-top-right-radius: 6px;
+	border-bottom: 0;
+}
+.checkout > .group > .row:last-child {
+	border-bottom-left-radius: 6px;
+	border-bottom-right-radius: 6px;
+	border-bottom: 1px solid var(--colorLightGray);
+}
+.checkout > .group > .row > input,
+.checkout > .group > .row > select {
+	border: 0;
+	width: 100%;
+	font-size: 14px;
+	outline: 0;
+}
+.checkout > .group > .row select {
+	padding: 0 5px;
 }

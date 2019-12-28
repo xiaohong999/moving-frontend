@@ -1,18 +1,22 @@
 /*global google*/
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { Elements, StripeProvider } from "react-stripe-elements";
+
 import { setStep } from "../../redux/actions";
-import { Container, Grid } from "@material-ui/core";
+import { Container, Grid, Button } from "@material-ui/core";
 import Map from "../../components/Map";
 import { FiCalendar, FiDollarSign } from "react-icons/fi";
 import { getDateString } from "../../utils/Utils";
+import CheckoutForm from "../../components/CheckoutForm";
 
 class PricePreview extends Component {
 	state = {
 		pickup: null,
 		destination: null,
 		directions: null,
-		distance: 0
+		distance: 0,
+		price: 0
 	};
 
 	componentWillMount() {
@@ -32,6 +36,17 @@ class PricePreview extends Component {
 				bookData.selectedLocation.destination.coordinate
 			);
 		}
+
+		let price =
+			bookData.selectedVehicle && bookData.selectedLocation
+				? Number(
+						bookData.selectedVehicle.pricePerKm *
+							Number.parseFloat(bookData.selectedLocation.distance / 1000)
+				  ).toFixed(2)
+				: 0;
+		this.setState({
+			price: price
+		});
 	}
 
 	showDirection = (pickup, destination) => {
@@ -69,21 +84,35 @@ class PricePreview extends Component {
 		});
 	};
 
+	onClickContinue = () => {
+		this.props.history.push("/book/checkout");
+	};
+
 	render() {
 		const { bookData } = this.props;
-		const { pickup, destination, distance, directions } = this.state;
+		const { pickup, destination, directions, price } = this.state;
 		return (
 			<Container maxWidth="md" style={{ marginBottom: 10 }}>
-				<Map
-					pickup={pickup ? pickup.coordinate : null}
-					destination={destination ? destination.coordinate : null}
-					directions={directions}
-					width="100%"
-					height="calc(100vh - 550px)"
-				/>
-				<div className="preview">
-					<Grid container>
-						<Grid item sm={6} xs={12} style={{ paddingTop: 10 }}>
+				<Grid
+					container
+					justify="center"
+					spacing={4}
+					style={{ background: "var(--colorWhite)" }}
+				>
+					<Grid
+						item
+						sm={6}
+						xs={12}
+						style={{ boxShadow: "5px 0 5px -5px gray" }}
+					>
+						<Map
+							pickup={pickup ? pickup.coordinate : null}
+							destination={destination ? destination.coordinate : null}
+							directions={directions}
+							width="100%"
+							height="300px"
+						/>
+						<div className="preview">
 							<div className="preview-location">
 								<img className="icon" src="../pin-up.png" alt="icon" />
 								<div className="info">
@@ -102,22 +131,6 @@ class PricePreview extends Component {
 									</div>
 								</div>
 							</div>
-							{/* <div className="preview-distance">
-								<span
-									style={{
-										color: "var(--colorMain)",
-										paddingRight: 5,
-
-										fontSize: 12,
-										fontWeight: 400
-									}}
-								>
-									Distance :
-								</span>
-								<span>{Number.parseFloat(distance / 1000).toFixed(2)}km</span>
-							</div> */}
-						</Grid>
-						<Grid item sm={6} xs={12}>
 							<div className="preview-time-price">
 								<div className="label">
 									<FiCalendar className="icon" />
@@ -136,49 +149,16 @@ class PricePreview extends Component {
 									</div>
 								</div>
 							</div>
-							<div className="preview-time-price">
-								<div className="label">
-									<FiDollarSign className="icon" />
-									<div className="text">Price:</div>
-								</div>
-								<div className="info value">
-									{bookData.selectedVehicle ? (
-										<div>
-											$
-											{Number(
-												bookData.selectedVehicle.pricePerKm *
-													Number.parseFloat(
-														bookData.selectedLocation.distance / 1000
-													)
-											).toFixed(2)}
-											{/* <span
-												style={{
-													paddingLeft: 5,
-													fontSize: 14,
-													fontWeight: 400
-												}}
-											>
-												(${bookData.selectedVehicle.pricePerKm} * $
-												{bookData.selectedLocation.distance}km)
-											</span> */}
-										</div>
-									) : (
-										"Not selected"
-									)}
-								</div>
-							</div>
-						</Grid>
+						</div>
 					</Grid>
-				</div>
-				<div className="payment-method">
-					<div className="label">Payment method</div>
-					<div className="kind">
-						<img className="item" src="../pay-01.png" alt="master card" />
-						<img className="item" src="../pay-02.png" alt="visa" />
-						<img className="item" src="../pay-03.png" alt="paypal" />
-						<img className="item" src="../pay-04.png" alt="bitcoin" />
-					</div>
-				</div>
+					<Grid item sm={6} xs={12}>
+						<StripeProvider apiKey="pk_test_TYooMQauvdEDq54NiTphI7jx">
+							<Elements>
+								<CheckoutForm price={price} />
+							</Elements>
+						</StripeProvider>
+					</Grid>
+				</Grid>
 			</Container>
 		);
 	}

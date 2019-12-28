@@ -5,7 +5,8 @@ const titles = [
 	"Enter your pickup and destination",
 	"Select a vehicle",
 	"Select a time",
-	"Preview the price"
+	"Preview the price",
+	"Checkout"
 ];
 
 const initialCategories = [
@@ -81,6 +82,7 @@ const initialState = {
 	selectedLocation: null,
 	selectedVehicle: null,
 	selectedDate: null,
+	price: 0,
 	title: titles[0],
 	step: 1
 };

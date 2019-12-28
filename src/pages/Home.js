@@ -40,7 +40,7 @@ class Home extends Component {
 						>
 							<div className="banner">
 								<div className="title">
-									<img className="icon" src="boy.png" />
+									<img className="icon" src="boy.png" alt="icon" />
 									Hong
 								</div>
 								<div className="description">
@@ -52,7 +52,7 @@ class Home extends Component {
 							</div>
 							<div className="banner">
 								<div className="title">
-									<img className="icon" src="girl.png" />
+									<img className="icon" src="girl.png" alt="icon" />
 									Mei
 								</div>
 								<div className="description">
@@ -85,7 +85,11 @@ class Home extends Component {
 						<div className="title">How it works</div>
 						<div className="subtitle">Anything moved in 3 easy steps</div>
 						<div className="image">
-							<img src="howitworks.png" style={{ maxWidth: "100%" }} />
+							<img
+								src="howitworks.png"
+								style={{ maxWidth: "100%" }}
+								alt="how it works"
+							/>
 						</div>
 						<div className="step">
 							<div className="title">1. Book Online</div>

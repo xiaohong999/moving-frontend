@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { MdInfoOutline } from "react-icons/md";
+// import { MdInfoOutline } from "react-icons/md";
 
 export default class Vehicle extends Component {
 	render() {

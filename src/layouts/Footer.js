@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 export default class Footer extends Component {
 	render() {
@@ -27,17 +27,26 @@ export default class Footer extends Component {
 					<h3>Connect</h3>
 					<div>
 						<a href="https://twitter.com/">
-							<img src="https://brolik.com/images/icon-twitter.svg" />
+							<img
+								src="https://brolik.com/images/icon-twitter.svg"
+								alt="twitter"
+							/>
 						</a>
 					</div>
 					<div>
 						<a href="https://www.facebook.com/">
-							<img src="https://brolik.com/images/icon-facebook.svg" />
+							<img
+								src="https://brolik.com/images/icon-facebook.svg"
+								alt="facebook"
+							/>
 						</a>
 					</div>
 					<div>
 						<a href="https://www.linkedin.com/">
-							<img src="https://brolik.com/images/icon-linkedin.svg" />
+							<img
+								src="https://brolik.com/images/icon-linkedin.svg"
+								alt="linkedin"
+							/>
 						</a>
 					</div>
 				</div>

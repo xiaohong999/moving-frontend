@@ -36,7 +36,7 @@ export default class LocationField extends Component {
 	};
 
 	render() {
-		const { classes, direction } = this.props;
+		const { direction } = this.props;
 		let dropDownWidth = this.state.inputWidth ? this.state.inputWidth + 70 : 0;
 		const arrow =
 			direction === 0 ? (
