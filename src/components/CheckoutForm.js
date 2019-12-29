@@ -1,16 +1,17 @@
 import React, { Component } from "react";
 import { CardElement, injectStripe } from "react-stripe-elements";
-import { FiDollarSign } from "react-icons/fi";
 import { Button } from "@material-ui/core";
 import axios from "axios";
 
 class CheckoutForm extends Component {
 	constructor(props) {
 		super(props);
-		this.submit = this.submit.bind(this);
 		this.state = {
-			countries: []
+			countries: [],
+			selectedCountry: "NZ"
 		};
+		this.submit = this.submit.bind(this);
+		this.onChangeCountry = this.onChangeCountry.bind(this);
 	}
 
 	componentDidMount() {
@@ -26,13 +27,19 @@ class CheckoutForm extends Component {
 			});
 	}
 
+	onChangeCountry(event) {
+		this.setState({
+			selectedCountry: event.target.value
+		});
+	}
+
 	async submit(ev) {
 		// User clicked submit
 	}
 
 	render() {
 		const { price } = this.props;
-		const { countries } = this.state;
+		const { countries, selectedCountry } = this.state;
 		return (
 			<div className="checkout">
 				<div className="price">
@@ -60,13 +67,9 @@ class CheckoutForm extends Component {
 				</div>
 				<div className="group">
 					<div className="row select">
-						<select>
+						<select value={selectedCountry} onChange={this.onChangeCountry}>
 							{countries.map(country => (
-								<option
-									key={country.code}
-									value={country.code}
-									selected={country.code == "NZ"}
-								>
+								<option key={country.code} value={country.code}>
 									{country.name}
 								</option>
 							))}
