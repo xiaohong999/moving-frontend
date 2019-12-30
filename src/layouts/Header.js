@@ -28,7 +28,7 @@ export default class Header extends Component {
 			<div>
 				<div className={`top-menu ${this.state.collapseClass}`}>
 					<div className="top-menu-lead">
-						<Link to="/">App Logo</Link>
+						<Link to="/">Lug</Link>
 					</div>
 					<div className="menu">
 						<Link to="/">Services</Link>

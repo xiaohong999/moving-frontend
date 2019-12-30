@@ -114,7 +114,7 @@ class PricePreview extends Component {
 						/>
 						<div className="preview">
 							<div className="preview-location">
-								<img className="icon" src="../pin-up.png" alt="icon" />
+								<img className="icon" src="../images/pin-up.png" alt="icon" />
 								<div className="info">
 									<div className="label">Pickup address:</div>
 									<div className="address">
@@ -123,7 +123,7 @@ class PricePreview extends Component {
 								</div>
 							</div>
 							<div className="preview-location">
-								<img className="icon" src="../pin-down.png" alt="icon" />
+								<img className="icon" src="../images/pin-down.png" alt="icon" />
 								<div className="info">
 									<div className="label">Destination:</div>
 									<div className="address">

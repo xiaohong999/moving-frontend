@@ -5,14 +5,19 @@ import { connect } from "react-redux";
 const styles = {
 	root: {
 		padding: 10,
-		fontSize: "larger",
+		fontSize: 20,
 		color: "var(--colorWhite)",
 		background: "var(--colorMain)",
 		boxShadow: "0 1px 1px grey",
-		marginBottom: 30
+		marginBottom: 30,
+		display: "flex",
+		alignItems: "center",
+		justifyContent: "center"
 	},
 	index: {
-		display: "inline-block",
+		display: "flex",
+		alignItems: "center",
+		justifyContent: "center",
 		padding: 5,
 		width: 30,
 		height: 30,
@@ -28,8 +33,8 @@ class TopBar extends Component {
 		const { classes, title, step } = this.props;
 		return (
 			<div className={classes.root}>
-				<span className={classes.index}>{step}</span>
-				{title}
+				<div className={classes.index}>{step}</div>
+				<div>{title}</div>
 			</div>
 		);
 	}

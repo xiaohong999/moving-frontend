@@ -1,5 +1,5 @@
 :root {
-	--colorMain: #505fb4;
+	--colorMain: #3a3973;
 	--colorBg: #f3f3f6;
 
 	--colorWhite: white;
@@ -7,16 +7,23 @@
 	--colorYellow: #fff055;
 	--colorLightGray: #dddee4;
 	--colorRed: #de615e;
-
 	text-align: center;
+	--fontMain: "Varela Round", -apple-system, BlinkMacSystemFont, "Segoe UI",
+		"Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+		"Helvetica Neue", sans-serif;
+	font-family: var(--fontMain);
+}
+input,
+button,
+label,
+select,
+option {
+	font-family: var(--fontMain) !important;
 }
 
 html,
 body {
 	margin: 0;
-	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-		"Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-		sans-serif;
 	background-color: var(--colorBg);
 }
 h3 {
@@ -29,11 +36,13 @@ h3 {
 	justify-content: center;
 	cursor: pointer;
 	box-shadow: 0.01em 0.01em 0 var(--colorGray);
+	border: 2px solid var(--colorWhite);
 }
 .category.selected,
 .category:hover {
 	background: var(--colorMain);
 	color: var(--colorBg);
+	border: 2px solid var(--colorWhite);
 }
 .category .icon {
 	height: 120px;
@@ -41,6 +50,11 @@ h3 {
 	padding: 1em;
 	display: block;
 }
+.category:hover .icon {
+	-webkit-filter: invert(1);
+	filter: invert(1);
+}
+
 .category .name {
 	text-align: center;
 	font-size: larger;
@@ -373,10 +387,11 @@ h3 {
 	display: inline-flex;
 }
 .top-menu > .menu > * {
-	padding: 10px 15px;
+	padding: 10px 18px;
 	display: inline-flex;
 	text-align: center;
-	font-size: 18px;
+	font-size: 20px;
+	font-weight: 600;
 }
 
 .top-menu .top-menu-icon {
@@ -423,10 +438,11 @@ h3 {
 }
 
 .top-menu-lead {
-	padding: 10px 30px;
+	padding: 10px 30px 10px 10px;
 	color: white;
 	display: inline-flex;
-	font-size: 28px;
+	font-family: "Permanent Marker";
+	font-size: 30px;
 	font-weight: bold;
 	text-shadow: 1px 1px black;
 }
@@ -456,8 +472,9 @@ h3 {
 }
 .home > .container > .title {
 	margin-top: 50px;
-	font-size: 70px;
+	font-size: 64px;
 	font-weight: bold;
+	font-family: "Permanent Marker";
 }
 .home > .container > .subtitle {
 	font-size: 36px;

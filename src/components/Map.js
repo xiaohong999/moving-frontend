@@ -25,7 +25,7 @@ export default class Map extends Component {
 						directions={directions}
 						options={{
 							polylineOptions: {
-								strokeColor: "#505fb4",
+								strokeColor: "#3a3973",
 								strokeWeight: 4
 							},
 							suppressMarkers: true
@@ -38,7 +38,7 @@ export default class Map extends Component {
 					<Marker
 						position={pickup}
 						icon={{
-							url: "../pin-up.png",
+							url: "../images/pin-up.png",
 							scaledSize: new window.google.maps.Size(40, 40)
 						}}
 					/>
@@ -49,7 +49,7 @@ export default class Map extends Component {
 					<Marker
 						position={destination}
 						icon={{
-							url: "../pin-down.png",
+							url: "../images/pin-down.png",
 							scaledSize: new window.google.maps.Size(40, 40)
 						}}
 					/>

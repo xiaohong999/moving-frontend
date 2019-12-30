@@ -21,7 +21,7 @@ class Home extends Component {
 					className="bg"
 					style={{
 						backgroundImage:
-							"linear-gradient(-180deg, rgba(40, 48, 96, 0.3) 2%, rgba(39, 47, 96, 0.8) 40%, rgb(40, 48, 96) 80%, rgb(40, 48, 96)), url('bg.jpg')"
+							"linear-gradient(-180deg, rgba(58, 57, 120, 0.3) 2%, rgba(58, 57, 120, 0.8) 40%, rgb(58, 57, 120) 80%, rgb(58, 57, 120)), url('images/bg.jpg')"
 					}}
 				></div>
 				<div style={{ position: "relative" }} className="container">
@@ -40,7 +40,7 @@ class Home extends Component {
 						>
 							<div className="banner">
 								<div className="title">
-									<img className="icon" src="boy.png" alt="icon" />
+									<img className="icon" src="images/boy.png" alt="icon" />
 									Hong
 								</div>
 								<div className="description">
@@ -52,7 +52,7 @@ class Home extends Component {
 							</div>
 							<div className="banner">
 								<div className="title">
-									<img className="icon" src="girl.png" alt="icon" />
+									<img className="icon" src="images/girl.png" alt="icon" />
 									Mei
 								</div>
 								<div className="description">
@@ -86,7 +86,7 @@ class Home extends Component {
 						<div className="subtitle">Anything moved in 3 easy steps</div>
 						<div className="image">
 							<img
-								src="howitworks.png"
+								src="images/howitworks.png"
 								style={{ maxWidth: "100%" }}
 								alt="how it works"
 							/>

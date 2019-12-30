@@ -1,7 +1,7 @@
 import * as Types from "./types";
 
 const titles = [
-	"Select a category and we'll get you moving!",
+	"Select a category",
 	"Enter your pickup and destination",
 	"Select a vehicle",
 	"Select a time",
@@ -13,32 +13,32 @@ const initialCategories = [
 	{
 		id: 1,
 		name: "Move Anything",
-		icon: "c-01.png"
+		icon: "images/c-01.png"
 	},
 	{
 		id: 2,
 		name: "Trademe Pickup",
-		icon: "c-02.png"
+		icon: "images/c-02.png"
 	},
 	{
 		id: 3,
 		name: "Storage Move",
-		icon: "c-03.png"
+		icon: "images/c-03.png"
 	},
 	{
 		id: 4,
 		name: "Small Move",
-		icon: "c-04.png"
+		icon: "images/c-04.png"
 	},
 	{
 		id: 5,
 		name: "Store Delivery",
-		icon: "c-05.png"
+		icon: "images/c-05.png"
 	},
 	{
 		id: 6,
 		name: "Urgent Across Town",
-		icon: "c-06.png"
+		icon: "images/c-06.png"
 	}
 ];
 
@@ -51,7 +51,7 @@ const initialVehicles = [
 		price: 47,
 		additionalPrice: 0.8,
 		pricePerKm: 1.5,
-		icon: "../v-01.png"
+		icon: "../images/v-01.png"
 	},
 	{
 		id: 2,
@@ -61,7 +61,7 @@ const initialVehicles = [
 		price: 63,
 		additionalPrice: 1.4,
 		pricePerKm: 3.0,
-		icon: "../v-02.png"
+		icon: "../images/v-02.png"
 	},
 	{
 		id: 3,
@@ -71,7 +71,7 @@ const initialVehicles = [
 		price: 100,
 		additionalPrice: 1.75,
 		pricePerKm: 4.0,
-		icon: "../v-03.png"
+		icon: "../images/v-03.png"
 	}
 ];
 
